@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public record Person(String name, int age, List<String> hobbies) {
@@ -8,6 +9,11 @@ public record Person(String name, int age, List<String> hobbies) {
         if (age < 0) {
             throw new IllegalArgumentException("Возраст не может быть отрицательным");
         }
-        hobbies = List.copyOf(hobbies);
+        // Создаём копию как изменяемый ArrayList
+        hobbies = new ArrayList<>(hobbies);
+    }
+
+    public Person withHobbies(List<String> newHobbies) {
+        return new Person(name, age, newHobbies);
     }
 }
