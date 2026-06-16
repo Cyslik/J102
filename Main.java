@@ -3,19 +3,19 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Person person = new Person("Максим", 23,
-                new ArrayList<>(List.of("бег", "чтение")));
+        List<String> hobbies = new ArrayList<>();
+        hobbies.add("бег");
+        hobbies.add("чтение");
+        Person person = new Person("Максим", 23, hobbies);
 
         System.out.println("Имя: " + person.name());
         System.out.println("Возраст: " + person.age());
         System.out.println("Хобби: " + person.hobbies());
 
-        List<String> newHobbies = new ArrayList<>(person.hobbies());
-        newHobbies.add("большой тенис");
+        hobbies.add("большой теннис");
 
-        Person updated = new Person(person.name(), person.age(), newHobbies);
+        Person updated = person.withHobbies(hobbies);
         System.out.println("Новое хобби: " + updated.hobbies());
-
 
     }
 }
