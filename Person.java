@@ -9,7 +9,7 @@ public record Person(String name, int age, List<String> hobbies) {
         if (age < 0) {
             throw new IllegalArgumentException("Возраст не может быть отрицательным");
         }
-        // Создаём копию как изменяемый ArrayList
+        
         hobbies = new ArrayList<>(hobbies);
     }
 
